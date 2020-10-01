@@ -15,8 +15,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
-
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'SonarCloud'
@@ -24,6 +22,8 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'fgaensslen_SonarCloud'
     projectName: 'Getting started'
+    
+- task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
