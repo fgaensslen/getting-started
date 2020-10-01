@@ -12,6 +12,8 @@ namespace TaskService
     public class TaskItem
     {
         public int Id { get; set; }
+        
+        public string PublicFieldIsAnIssue = "Raise an Issue!"; 
 
         public string Title { get; set; }
 
