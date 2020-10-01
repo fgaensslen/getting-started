@@ -22,7 +22,7 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'fgaensslen_SonarCloud'
     projectName: 'Getting started'
-    
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -41,7 +41,7 @@ steps:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
       **\*.Tests.dll
-      !**\obj\*
+      !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
     codeCoverageEnabled: true
 
@@ -50,7 +50,7 @@ steps:
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
-    
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
