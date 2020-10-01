@@ -7,19 +7,24 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  hello_world_job: 
 
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest 
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.301
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+  name: A job to say hello 
+
+  steps: 
+
+  - name: Hello world action step 
+
+    id: hello 
+
+    uses: fgaensslen/hello-world-action@v1 
+
+    with: 
+
+      who-to-greet: 'Git for Dummies' 
+
+  - name: Get the output time 
+
+    run: echo "The time was ${{ steps.hello.outputs.time }}" 
