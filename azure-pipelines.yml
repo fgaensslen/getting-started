@@ -43,13 +43,14 @@ steps:
       **\*.Tests.dll
       !**\obj\*
     searchFolder: '$(System.DefaultWorkingDirectory)'
-    codeCoverageEnabled: true	
+    codeCoverageEnabled: true
+
 - task: SonarCloudAnalyze@1
 
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
-	
+    
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
