@@ -19,7 +19,7 @@ jobs:
 
       id: hello 
 
-      uses: fgaensslen/hello-world-action@v1 
+      uses: kaufm/hello-world-action@v1 
 
       with: 
 
