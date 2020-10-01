@@ -23,7 +23,7 @@ jobs:
 
       with: 
 
-        who-to-greet: 'Git for Dummies' 
+        who-to-greet: 'Git for Dummiess' 
 
     - name: Get the output time 
 
