@@ -17,6 +17,14 @@ variables:
 steps:
 - task: NuGetToolInstaller@1
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'fgaensslen'
+    scannerMode: 'MSBuild'
+    projectKey: 'fgaensslen_SonarCloud'
+    projectName: 'Getting started'
+
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
@@ -36,7 +44,13 @@ steps:
       !**\obj\*
     searchFolder: '$(System.DefaultWorkingDirectory)'
     codeCoverageEnabled: true
+	
+- task: SonarCloudAnalyze@1
 
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+	
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
